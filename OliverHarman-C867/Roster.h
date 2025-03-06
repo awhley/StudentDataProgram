@@ -48,15 +48,8 @@ public:
         }
         cout << "Displaying all students:" << endl;
         for (int i = 0; i < studentSize; i++) {
-            Student* s = classRosterArray[i];
-            cout << s->GetStudentId() << "\t"
-                << s->GetFirstName() << "\t"
-                << s->GetLastName() << "\t"
-                << s->GetAge() << "\t"
-                << "{" << s->GetNumberOfDaysToCompleteCourse1() << ","
-                << s->GetNumberOfDaysToCompleteCourse2() << ","
-                << s->GetNumberOfDaysToCompleteCourse3() << "}\t"
-                << s->GetDegreeProgramToString() << endl;
+            classRosterArray[i]->PrintAll(); // using the new PrintAll method with tab formatting
+            cout << endl;
         }
     }
 
@@ -87,22 +80,8 @@ public:
         }
     }
 
-    void printByDegreeProgram(DegreeProgram degreeProgram) {
-        cout << "\nShowing students in degree program: " << degreeProgramToString(degreeProgram) << endl;
-        cout << "\n";
-        for (int i = 0; i < studentSize; i++) {
-            if (classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
-                cout << classRosterArray[i]->GetStudentId() << "\t"
-                    << classRosterArray[i]->GetFirstName() << "\t"
-                    << classRosterArray[i]->GetLastName() << "\t"
-                    << classRosterArray[i]->GetAge() << "\t"
-                    << "{" << classRosterArray[i]->GetNumberOfDaysToCompleteCourse1() << ","
-                    << classRosterArray[i]->GetNumberOfDaysToCompleteCourse2() << ","
-                    << classRosterArray[i]->GetNumberOfDaysToCompleteCourse3() << "}\t"
-                    << classRosterArray[i]->GetDegreeProgramToString() << endl;
-            }
-        }
-    }
+    void printByDegreeProgram(DegreeProgram degreeProgram);
+
     ~Roster() {
         for (int i = 0; i < studentSize; i++) {
             delete classRosterArray[i];

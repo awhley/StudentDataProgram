@@ -99,21 +99,11 @@ public:
 	}
 
 public:
-	string GetDegreeProgramToString() {
-		string degreeProgramString;
+	// method implemented in Student.cpp to satisfy requirement
+	string GetDegreeProgramToString();
 
-		if (GetDegreeProgram() == 0) {
-			degreeProgramString = "SECURITY";
-		}
-		else if (GetDegreeProgram() == 1) {
-			degreeProgramString = "NETWORK";
-		}
-		else if (GetDegreeProgram() == 2) {
-			degreeProgramString = "SOFTWARE";
-		}
-
-		return degreeProgramString;
-	}
+	// tabbed output of all student info
+	void PrintAll();
 
 	// class constructor
 public:
@@ -148,25 +138,28 @@ public:
 		switch (p)
 		{
 		case StudentId:
-			cout << "Student Id: " + studentId;
+			cout << "Student Id: " << studentId;
 			break;
 		case FirstName:
-			cout << "First Name: " + firstName;
+			cout << "First Name: " << firstName;
 			break;
 		case LastName:
-			cout << "Last Name: " + lastName;
+			cout << "Last Name: " << lastName;
 			break;
 		case EmailAddress:
-			cout << "Email: " + emailAddress;
+			cout << "Email: " << emailAddress;
 			break;
 		case Age:
-			cout << "Age: " + age;
+			cout << "Age: " << to_string(age);
 			break;
 		case NumberofDaysToCompleteEachCourse:
-			cout << "Number of Days to Complete Each Course: " + NumberofDaysToCompleteEachCourse;
+			cout << "Number of Days to Complete Each Course: {"
+				<< to_string(numberOfDaysToCompleteEachCourse[0]) << ", "
+				<< to_string(numberOfDaysToCompleteEachCourse[1]) << ", "
+				<< to_string(numberOfDaysToCompleteEachCourse[2]) << "}";
 			break;
 		case DegreeProgram:
-			cout << "Degree Program: " + degreeProgram;
+			cout << "Degree Program: " << GetDegreeProgramToString();
 			break;
 		default:
 			break;
